@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Get the receipt</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+ <!--- <h1 id="topText">NFC is {{status}}</h1> -->
+ <img  id="bgTopNoChange" [src]="changeableBG" />
+
+  <!--- <div id="centerButton"> -->
+    <style>
+  
+    </style>
+   <!--- <div id="cf"> -->
+     <!-- <img class="bottom test" src="Power_Button.png" /> -->
+     <img class="top" id="top" [src]="picToView" (click)="changeImage()" />
+    <!--- <img src="assets/img/NCF_ONN.png" > -->
+    <!-- -</div> -->
+    
+    
+  <!--  </div> -->
+</ion-content>

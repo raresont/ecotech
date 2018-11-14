@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Message" defaultHref="/app/tabs/(schedule:schedule)"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{session?.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="session">
+    <div class="support-logo" id="centeredTopImg" style="text-align: center;">
+      <img id="centeredTopImg" src="assets/img/Lidl-Logo.svg.png" alt="Ionic Logo" style="border-radius:50%;">
+    </div>
+    <h1 class="centeredContent" style="text-align: center;font-size:24px;">
+     <b> <i> Cluj-Napoca, Str.Regele Ferdinand, Nr. 22-26 </i> </b>
+  <!---    {{session.tracks[0]}} -->
+    </h1>
+
+      <h1 class="centeredContent" style="text-align: center;font-size:15px;">
+          {{session.timeStart}}
+      <!---    {{session.tracks[0]}} -->
+      </h1>
+   <!---   <p>{{session.location}}</p> -->
+   <ion-grid>
+   <ion-item *ngFor="let track of session.tracks" [attr.track]="track.name | lowercase">
+
+  <!--- <div class="item row"> -->
+      <ion-row>
+     <!---  <span float-left class="col col-50"col-3> -->
+          <ion-col col-3>{{track.name}}</ion-col>
+
+      <!---     </span>
+      <span float-right class="col col-50" offset-3 col-3> -->
+          <ion-col col-3 offset-3>{{track.price}}</ion-col>
+        <!---     
+          </span>
+   </div>
+  --><hr>
+</ion-row>
+
+<hr>
+   </ion-item>
+
+   <ion-row>
+    <ion-col col-3></ion-col>
+    <ion-col col-3>         Total</ion-col>
+        <ion-col col-3 offset-3>{{track.total}}</ion-col>
+  </ion-row>
+
+  </ion-grid>
+  
+<script></script>
+
+    <form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">
+      <!---
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label position="stacked" color="primary">Enter a message to be displayed on the unit screen</ion-label>
+          <ion-textarea [(ngModel)]="supportMessage" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>
+        </ion-item>
+      </ion-list>
+  
+      <ion-text color="danger">
+        <p [hidden]="supportQuestion.valid || submitted === false" padding-left>
+          A message is required
+        </p>
+      </ion-text>
+    -->
+      <div padding>
+     <!---   <ion-button expand="block" type="submit" style="background:greenyellow !important;">Receip list(PDF)</ion-button>
+     --> <ion-button expand="block" (click)="navigate('/app/tabs/(schedule:schedule)')">View All Receipts</ion-button>
+      </div>
+    </form>
+    <img id="centeredTopImg" src="assets/img/Screenshot_5.png" alt="Ionic Logo">
+  </div>
+</ion-content>
+<!---
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+
+-->
